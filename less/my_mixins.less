@@ -1,0 +1,220 @@
+/* Mixin */
+
+
+.border-radius (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
+    -webkit-border-radius: @topleft @topright @bottomright @bottomleft;
+    -moz-border-radius: @topleft @topright @bottomright @bottomleft;
+    border-radius: @topleft @topright @bottomright @bottomleft;
+}
+
+
+
+.box-shadow (@x: 0px, @y: 3px, @blur: 3px, @spred: 0px, @color) {
+    -webkit-box-shadow: @x @y @blur @spred @color;
+    -moz-box-shadow: @x @y @blur @spred @color;
+    box-shadow: @x @y @blur @spred @color;
+}
+
+.transition (@prop: all, @time: 0.5s, @ease: linear) {
+    -webkit-transition: @prop @time @ease;
+    -moz-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+}
+
+.rotate (@rotate: 90deg) {
+    -webkit-transform: rotate(@rotate);
+    -moz-transform: rotate(@rotate);
+    -o-transform: rotate(@rotate);
+    -ms-transform: rotate(@rotate);
+    transform: rotate(@rotate);
+}
+
+.border(@width: 1px, @style: solid, @color: #dddddd) {
+    border: @width @style @color;
+}
+
+.opacity(@opacity) {
+    @mfopacity: @opacity*100;
+    @fopacity: "alpha(opacity=@{mfopacity})";
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{mfopacity})";
+    filter:~"@{fopacity}";
+    -webkit-opacity: @opacity;
+    -moz-opacity: @opacity;
+    opacity: @opacity;
+}
+
+.gradient(@type;
+@colors;
+@dir: 0deg;
+@prefixes: webkit, moz, ms, o;
+
+@index: length(@prefixes)) when (@index > 0) {
+    .gradient(@type;
+    @colors;
+    @dir;
+    @prefixes;
+    (@index - 1));
+
+    @prefix : extract(@prefixes, @index);
+    @dir-old : 90 - (@dir);
+
+    background:~"-@{prefix}-@{type}-gradient(@{dir-old}, @{colors})";
+
+    & when (@index =length(@prefixes)) {
+        background:~"@{type}-gradient(@{dir}, @{colors})";
+    }
+}
+
+
+.colormixin(@color) {
+    color: @color
+}
+
+.stylemixin(@style) {
+    font-style: @style;
+
+}
+.uppercase{
+    text-transform: uppercase;
+}.lowercase{
+    text-transform: lowercase;
+}
+
+.paddingTop(@index) when (@index > 0) {
+    .paddingTop-@{index} {
+     padding-top: @index * 5px;
+    }
+   
+    .paddingTop(@index - 1)
+   }
+   
+   .paddingTop(5);
+   
+   
+   
+   .paddingBottom(@index) when (@index > 0) {
+    .paddingBottom-@{index} {
+     padding-bottom: @index * 5px;
+    }
+   
+    .paddingBottom(@index - 1);
+   }
+   
+   .paddingBottom(5);
+   
+   
+   .loop2(@index) when (@index > 0) {
+    .paddingLeft-@{index} {
+     padding-left: @index * 5px;
+    }
+   
+    .loop2(@index - 1);
+   }
+   
+   .loop2(5);
+   
+   
+   .loop3(@index) when (@index > 0) {
+    .paddingRight-@{index} {
+     padding-right: @index * 5px;
+    }
+   
+    .loop3(@index - 1)
+   }
+   
+   .loop3(5);
+   
+   
+   .marg(@index) when (@index > 0) {
+    .marginTop-@{index} {
+     margin-top: @index * 5px;
+    }
+   
+    .marg(@index - 1);
+   }
+   
+   .marg(5);
+   
+   
+   .marg1(@index) when (@index > 0) {
+    .marginBottom-@{index} {
+     margin-bottom: @index * 5px;
+    }
+   
+    .marg1(@index - 1);
+   }
+   
+   .marg1(5);
+   
+   
+   .marg2(@index) when (@index > 0) {
+    .marginLeft-@{index} {
+     margin-left: @index * 5px;
+    }
+   
+    .marg2(@index - 1);
+   }
+   
+   .marg2(5);
+   
+   .marg3(@index) when (@index > 0) {
+    .marginRight-@{index} {
+     margin-right: @index * 5px;
+    }
+   
+    .marg3(@index - 1);
+   }
+   
+   .marg3(5);
+   
+   
+
+   .arrow-up(@size:5px, @color:@white) {
+    width: 0; 
+    height: 0; 
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+    border-bottom: @size solid @color;
+  }
+  
+  .arrow-down(@size:5px, @color:@white) {
+    width: 0; 
+    height: 0; 
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+    
+    border-top: @size solid @color;
+  }
+  
+  .arrow-right(@size:5px, @color:@white) {
+    width: 0; 
+    height: 0; 
+    border-top: @size solid transparent;
+    border-bottom: @size solid transparent;
+    
+    border-left: @size solid @color;
+  }
+  
+  .arrow-left(@size:5px, @color:@white) {
+    width: 0; 
+    height: 0; 
+    border-top: @size solid transparent;
+    border-bottom: @size solid transparent; 
+    
+    border-right:@size solid @color; 
+  }
+
+  .display(@inline:inline-block){
+    display: @inline;
+  }
+  .display_inline{
+      display: inline-block;
+  }

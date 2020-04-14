@@ -1,0 +1,153 @@
+@import "variables.less";
+@import "media_queries.less";
+@import "font-size.less";
+@import "font.less";
+@import "my_mixins.less";
+@import "my_variables.less";
+
+body{
+    font-family: 'Lato';
+}
+header{
+    // background:@bannerBg;
+}
+.navbar-default.topNavbar{
+    background-color: transparent;
+    border:transparent;
+    margin-top:40px;
+    a.navbar-brand{
+        display: flex;
+        padding:0;
+        img {
+            width:145px
+        }
+    }
+
+    .navbar-nav {
+        margin-top: 10px;
+        >  li {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            >  a{
+                color:@white;
+                font-family: 'Lato';
+                font-weight: 600;
+                font-style: italic;
+                font-size: @font15;
+            }
+        }
+        > .open > a{
+            color:@white;
+            font-family: 'Lato';
+            font-weight: 600;
+            font-style: italic;
+            font-size: @font15;
+            background-color: transparent;
+        }
+        
+       .active{
+           >
+           a{
+               background-color: transparent;
+               position:relative;
+               &:after{
+                   content: "";
+                   position: absolute;
+                   bottom: 5px;
+                   left: 5px;
+                   height: 3px;
+                   background: @red;
+                   width: 50%;
+               }
+               &:hover, &:focus,&:visited{
+                   background-color: transparent;
+                   color:@white;
+               }
+           }
+       }
+       ul.dropdown-menu{
+           padding:15px;
+           .border-radius(10px);
+           .box-shadow(0px, 5px, 10px,0, #0000001A);
+           min-width: auto;
+           li{
+              display: flex;
+              .menuList {
+                width: 220px;
+              
+            }
+            .menuList + .menuList {
+                align-items: flex-end;
+                display: flex;
+                flex-direction: column;
+                border-left: 1px solid #c8c8c8;
+               }
+    
+           }
+            .media {
+                width: 200px;
+                position: relative;
+                .media-left {
+                    // vertical-align: middle;
+                a {
+                    .media-object {
+                        width: 27px;
+                    }
+                    &:hover {}
+                    &:active {}
+                    &:focus {}
+                }
+                }
+                .media-body {
+                .media-heading {
+                    font-family: 'Lato';
+                    color:@black;
+                    font-size: @font12;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                .timeStamp {
+                    color:@blue;
+                    .opacity(0.5);
+                    font-size: @font12;
+                }
+                }
+                .icon{
+                    .rotate(-90deg);
+                    position: absolute;
+                    top:50%;
+                    margin-top:-12px;
+                    right: 0;
+                    color:@blue;
+                    .opacity(0.5);
+                }
+            }
+       }
+    }
+}
+
+.container-fluid{
+    width: 100%;
+@media @desktop-n{
+    width:1366px;
+    max-width: 1366px;
+}
+}
+
+.headerBanner{
+    height: 684px;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: -9;
+    img{
+        position: absolute;
+    width: 100%;
+    }
+    img.convexCurve{
+        bottom:0;
+    }
+}
+
+
